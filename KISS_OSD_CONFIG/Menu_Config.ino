@@ -438,9 +438,9 @@ void* IconsMenu()
 void* RSSIMenu()
 {
   #ifdef BF32_MODE
-  uint8_t maxRSSIChannel = 4;
+  uint8_t maxRSSIChannel = 8;
   #else
-  uint8_t maxRSSIChannel = 3;
+  uint8_t maxRSSIChannel = 7;
   #endif
   switch(activeRSSIMenuItem)
   {
@@ -482,7 +482,7 @@ void* RSSIMenu()
   }
   else
   {
-    if(settings.s.m_RSSIchannel < 4)
+    if(settings.s.m_RSSIchannel < 8)
     {
       OSD.print( fixPStr(AUX_STR) );
       uint8_t tempCol = startCol + strlen_P(RSSI_CHANNEL_STR) + 4;

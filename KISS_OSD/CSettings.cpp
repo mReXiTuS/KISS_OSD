@@ -241,7 +241,7 @@ void CSettings::LoadDefaults()
   #ifdef BF32_MODE
   s.m_RSSIchannel = 4; //telemetry
   #else
-  s.m_RSSIchannel = 3; //AUX4
+  s.m_RSSIchannel = 6; //AUX7
   #endif
   for(i=0; i<ICON_SETTINGS_SIZE; i++)
   {

@@ -228,7 +228,7 @@ static uint16_t maxTemps[4] = {0,0,0,0};
 static uint16_t ESCVoltage[4] = {0,0,0,0};
 static uint16_t minVoltage[4] = {10000,10000,10000,10000};
 static uint16_t ESCmAh[4] = {0,0,0,0};
-static int16_t  AuxChanVals[5] = {0,0,0,0,0};
+static int16_t  AuxChanVals[9] = {0,0,0,0,0,0,0,0,0};
 static unsigned long start_time = 0;
 static unsigned long time = 0;
 static unsigned long old_time = 0;
@@ -1246,7 +1246,7 @@ void loop(){
         if(!timer1sec) doItOnce = true;
         currentRT = currentRT2;
         LipoMAH = LipoMAH2;
-        if(settings.s.m_RSSIchannel < 4) AuxChanVals[settings.s.m_RSSIchannel] = rssi2;
+        if(settings.s.m_RSSIchannel < 8) AuxChanVals[settings.s.m_RSSIchannel] = rssi2;
         #endif 
 
         printCount = 0;
@@ -1521,7 +1521,7 @@ void loop(){
         #ifdef RSSI_
         if(settings.s.m_RSSIchannel > -1)
         {
-          if(settings.s.m_RSSIchannel < 4) rssiVal = AuxChanVals[settings.s.m_RSSIchannel];
+          if(settings.s.m_RSSIchannel < 8) rssiVal = AuxChanVals[settings.s.m_RSSIchannel];
           if (rssiVal > 100 || settings.s.m_RSSImax > settings.s.m_RSSImin)
           {
             if (settings.s.m_RSSImax > settings.s.m_RSSImin)

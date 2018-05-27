@@ -761,7 +761,7 @@ boolean ReadTelemetry()
             pitch = (constrain(((serialBuf[3 + STARTCOUNT] << 8) | serialBuf[2 + STARTCOUNT]), 1000, 2000) - 1000)*2;
             yaw = (constrain(((serialBuf[5 + STARTCOUNT] << 8) | serialBuf[4 + STARTCOUNT]), 1000, 2000) - 1000)*2;            
             throttle = (constrain(((serialBuf[7 + STARTCOUNT] << 8) | serialBuf[6 + STARTCOUNT]), 1000, 2000) - 1000) / 10;
-            for(i=0; i<4; i++) AuxChanVals[i] = (constrain(((serialBuf[9 + i*2 + STARTCOUNT] << 8) | serialBuf[8 + i*2 + STARTCOUNT]), 1000, 2000) - 1000)*2-1000;
+            for(i=0; i<8; i++) AuxChanVals[i] = (constrain(((serialBuf[9 + i*2 + STARTCOUNT] << 8) | serialBuf[8 + i*2 + STARTCOUNT]), 1000, 2000) - 1000)*2-1000;
           break;
           case MSP_ANALOG:
             LipoVoltage = serialBuf[STARTCOUNT]*10; //8-bit WTF???
